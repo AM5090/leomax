@@ -5,6 +5,8 @@ import Navigate from '../../components/Navigate';
 
 import { useGetMenuQuery } from '../../store/rtk';
 
+import styled from './mainLayout.module.scss';
+
 export function MainLayout() {
 
   const location = useLocation();
@@ -35,7 +37,7 @@ export function MainLayout() {
   return(
     <Suspense>
       <header>Заголовок</header>
-      <main className="container">
+      <main className={styled.container}>
         <Navigate menu={data}/>
         <section className="content">
           <Outlet/>

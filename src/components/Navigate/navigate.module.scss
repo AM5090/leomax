@@ -1,0 +1,45 @@
+@import '../../assets/styles/vars.scss';
+
+.navMenu {
+  width: 220px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px 0px 30px 0px;
+  border-right: 1px solid #ffffff59;
+  overflow-y: auto;
+  box-shadow: 5px 4px 20px 0px #61dafb2e;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      padding: 8px;
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: $primary;
+      }
+      
+  
+      &:hover {
+        background-color: #2e3442;
+        box-shadow: 0px 0px 11px 0px #60d9fb2e;
+
+        a {
+          color: $accent;
+        }
+      }
+    }
+  }
+
+  
+
+  // li + li {
+  //   margin: 8px 0 0 0;
+  // }
+}
