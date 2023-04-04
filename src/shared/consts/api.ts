@@ -1,0 +1,1 @@
+export const BASE_API_MENU_URL = 'https://static-basket-01.wb.ru/vol0';
