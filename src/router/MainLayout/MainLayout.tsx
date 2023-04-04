@@ -16,7 +16,10 @@ export function MainLayout() {
     <Suspense>
       <header>Заголовок</header>
       <main className="container">
-        <Outlet/>
+        <nav>Навигация</nav>
+        <section className="content">
+          <Outlet/>
+        </section>
       </main>
     </Suspense>
   );
