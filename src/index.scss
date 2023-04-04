@@ -22,3 +22,15 @@ code {
     monospace;
 }
 
+*::-webkit-scrollbar {
+  width: 6px; /* ширина scrollbar */
+  // height: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: #282c34; /* цвет дорожки */
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #2fcaf5; /* цвет плашки */
+  border-radius: 25px; /* закругления плашки */
+  border: 3px solid transparent; /* padding вокруг плашки */
+}

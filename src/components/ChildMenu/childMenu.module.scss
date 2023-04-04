@@ -1,0 +1,11 @@
+@import '../../assets/styles/vars.scss';
+
+.childMenu {
+  position: absolute;
+  left: $navWidth;
+  top: 0;
+  height: calc(100vh - $headerHeight);
+  width: 600px;
+  padding: 30px;
+  box-shadow: 5px 4px 20px 0px #61dafb2e;
+}

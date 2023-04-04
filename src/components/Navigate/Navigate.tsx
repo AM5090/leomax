@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useAppDispatch } from '../../hooks/reduxHook';
 import { linksHandler } from '../../libs/functions/linksHandler';
 import { IMenuItem } from '../../store/rtk/menuInterface';
+import { setMenuItem } from '../../store/slices/mainSlice';
 
 import styled from './navigate.module.scss';
 
@@ -10,6 +13,14 @@ interface INavigate {
 }
 
 export function Navigate({ menu }: INavigate) {
+
+  const dispatch = useAppDispatch();
+
+  function handlerOpenMenu(menuItem: IMenuItem) {
+    // console.log(menuItem);
+    dispatch(setMenuItem(menuItem));
+  }
+
   return (
     <nav className={styled.navMenu}>
       <ul>
@@ -19,7 +30,7 @@ export function Navigate({ menu }: INavigate) {
 
           if(link) {
             return (
-              <li key={item.id}>
+              <li key={item.id} onMouseEnter={() => handlerOpenMenu(item)}>
                 <NavLink to={link}>{item.name}</NavLink>
               </li>
             );

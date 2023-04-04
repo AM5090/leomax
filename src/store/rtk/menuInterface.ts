@@ -1,3 +1,13 @@
+export interface IMenuItemChilds {
+  id: number
+  name: string
+  parent: number
+  query: string
+  seo: string
+  shard: string
+  url: string
+}
+
 export interface IMenuItem {
   id: number
   landing: boolean
@@ -5,13 +15,5 @@ export interface IMenuItem {
   query: string
   shard: string
   url: string
-  childs: {
-    id: number
-    name: string
-    parent: number
-    query: string
-    seo: string
-    shard: string
-    url: string
-  }
+  childs: IMenuItemChilds[]
 }
