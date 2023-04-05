@@ -1,6 +1,8 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
+import { useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { setMenuItem } from '../../store/slices/mainSlice';
+import ChildMenuItem from '../ChildMenuItem';
 
 import styled from './childMenu.module.scss';
 
@@ -16,9 +18,10 @@ export function ChildMenu() {
   }
 
   return (
-    <section className={styled.childMenu} onMouseLeave={handlerCloseMenu}>
-      <h2>{selectMenuItem?.name}</h2>
-      <p>{selectMenuItem?.childs ? selectMenuItem?.childs.length : selectMenuItem?.id}</p>
+    <section className={styled.childMenu} >
+      <ChildMenuItem name={selectMenuItem?.name} childs={selectMenuItem?.childs}/>
     </section>
   );
 }
+
+// onMouseLeave={handlerCloseMenu}

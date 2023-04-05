@@ -5,7 +5,8 @@
   left: $navWidth;
   top: 0;
   height: calc(100vh - $headerHeight);
-  width: 600px;
-  padding: 30px;
+  // width: 600px;
+  min-width: $navWidth;
+  padding: 10px 15px;
   box-shadow: 5px 4px 20px 0px #61dafb2e;
 }

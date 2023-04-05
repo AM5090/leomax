@@ -2,8 +2,10 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 
 import Empty from '../pages/Empty';
 import Main from '../pages/Main';
+import { useGetMenuQuery } from '../store/rtk';
 
 import MainLayout from './MainLayout';
+
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

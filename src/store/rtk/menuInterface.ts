@@ -6,6 +6,7 @@ export interface IMenuItemChilds {
   seo: string
   shard: string
   url: string
+  childs?: IMenuItemChilds[]
 }
 
 export interface IMenuItem {
