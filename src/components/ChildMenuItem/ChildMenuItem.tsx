@@ -40,7 +40,7 @@ export function ChildMenuItem({name, childs}: IChildMenuItemProps) {
               if (link) {
                 return (
                   <li key={item.id} onMouseEnter={() => handlerOpenChild(item)}>
-                    <Link to={link}>{item.name}</Link>
+                    <Link to={link} onClick={(e) => e.preventDefault()}>{item.name}</Link>
                   </li>
                 );
               }

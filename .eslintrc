@@ -25,7 +25,7 @@
       "always"
     ],
     "indent": ["warn", 2],
-    "max-len": ["error", {"code": 120}],
+    "max-len": ["error", {"code": 220}],
     "import/order": [
       "error",
       {

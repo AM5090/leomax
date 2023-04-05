@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useAppDispatch } from '../../hooks/reduxHook';
 import { linksHandler } from '../../libs/functions/linksHandler';
@@ -29,7 +29,7 @@ export function Navigate({ menu }: INavigate) {
           if(link) {
             return (
               <li key={item.id} onMouseEnter={() => handlerOpenMenu(item)}>
-                <NavLink to={link}>{item.name}</NavLink>
+                <Link to={link} onClick={(e) => e.preventDefault()}>{item.name}</Link>
               </li>
             );
           };
