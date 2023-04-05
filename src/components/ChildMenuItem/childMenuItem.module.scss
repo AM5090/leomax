@@ -4,7 +4,52 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  .ChildMenuItem {
-  
+  height: 100%;
+
+  .childMenuList {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+
+    h2 {
+      margin: 0 0 10px 0;
+    }
+
+    nav {
+      min-width: $navWidth;
+      overflow-y: auto;
+      height: 100%;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          padding: 8px;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            color: $primary;
+          }
+          
+      
+          &:hover {
+            background-color: #2e3442;
+            box-shadow: 0px 0px 11px 0px #60d9fb2e;
+    
+            a {
+              color: $accent;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  & .childMenuItemWrap {
+    margin-left: 10px;
   }
 }

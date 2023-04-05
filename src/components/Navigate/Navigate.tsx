@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useAppDispatch } from '../../hooks/reduxHook';
@@ -17,7 +16,6 @@ export function Navigate({ menu }: INavigate) {
   const dispatch = useAppDispatch();
 
   function handlerOpenMenu(menuItem: IMenuItem) {
-    // console.log(menuItem);
     dispatch(setMenuItem(menuItem));
   }
 

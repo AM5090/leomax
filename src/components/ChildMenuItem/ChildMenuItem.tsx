@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
@@ -17,15 +17,20 @@ interface IChildMenuItemProps {
 export function ChildMenuItem({name, childs}: IChildMenuItemProps) {
 
   const [selectChild, setSelectChild] = useState<IMenuItemChilds | null>(null);
+  const {selectMenuItem} = useAppSelector(state => state.main);
+
+  useEffect(() => {
+    setSelectChild(null);
+  }, [selectMenuItem]);
   
   function handlerOpenChild(item: IMenuItemChilds) {
-    console.log('childItem >>>', item);
     setSelectChild(item);
   }
 
   return (
     <div className={styled.childMenuItemWrap}>
-      <article>
+
+      <article className={styled.childMenuList}>
         <h2>{name}</h2>
         <nav>
           <ul>
@@ -43,6 +48,7 @@ export function ChildMenuItem({name, childs}: IChildMenuItemProps) {
           </ul>
         </nav>
       </article>
+
       {selectChild?.childs &&
         <ChildMenuItem name={selectChild?.name} childs={selectChild?.childs} />
       }

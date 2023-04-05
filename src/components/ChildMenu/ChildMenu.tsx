@@ -18,10 +18,12 @@ export function ChildMenu() {
   }
 
   return (
-    <section className={styled.childMenu} >
-      <ChildMenuItem name={selectMenuItem?.name} childs={selectMenuItem?.childs}/>
-    </section>
+    <>
+      {selectMenuItem?.childs &&
+        <section className={styled.childMenu} onMouseLeave={handlerCloseMenu}>
+          <ChildMenuItem name={selectMenuItem?.name} childs={selectMenuItem?.childs}/>
+        </section>
+      }
+    </>
   );
 }
-
-// onMouseLeave={handlerCloseMenu}
