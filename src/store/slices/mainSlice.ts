@@ -7,7 +7,7 @@ interface MainInitialState {
 }
 
 const initialState: MainInitialState = {
-  selectMenuItem: '',
+  selectMenuItem: 'electronics',
 };
 
 export const mainSlice = createSlice({

@@ -1,51 +1,31 @@
-import { useEffect } from 'react';
-
 import { useAppSelector } from '../../hooks/reduxHook';
 import { useGetCatalogQuery } from '../../store/rtk';
+
+import styled from './main.module.scss';
 
 export function Main() {
 
   const {selectMenuItem} = useAppSelector(state => state.main);
 
-  const queryData = {
-    shard: 'children_shoes',
-    query: 'cat=631',
-    category: 'electronics',
-  };
+  const {data} = useGetCatalogQuery(selectMenuItem);
 
-  const {data} = useGetCatalogQuery();
-
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
 
   return (
     <>
-      {data && data.map((item: any) => (
-        <div>
-          <h4>{item?.title}</h4>
-          <div style={{width: '200px', height: '200px'}}>
-            <img src={item?.image} style={{ width: '100%', height: '100%' }}/>
-          </div>
-          <p>{item?.description}</p>
-        </div>
-      ))}
+      <h1 className={styled.mainTitle}>{selectMenuItem}</h1>
+      <div className={styled.list}>
+        {data && data.map((item: any) => (
+          <article className={styled.listItme}>
+            <div className={styled.image}>
+              <img src={item?.image}/>
+            </div>
+            <div className={styled.content}>
+              <h4 className={styled.title}>{item?.title}</h4>
+              <p className={styled.price}>{item?.price}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </>
   );
 }
-
-
-// useEffect(() => {
-//   async function queryFetch() {
-//     try {
-//       const json = await fetch('https://fakestoreapi.com/products', {
-//         method: 'GET',
-//       });
-//       const res = await json.json();
-//       console.log(res);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-//   queryFetch();
-// }, []);
