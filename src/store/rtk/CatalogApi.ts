@@ -10,7 +10,7 @@ export const catalogApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQueryCatalog,
   endpoints: (builder) => ({
-    getCatalog: builder.query<any, string>({
+    getCatalog: builder.query<any, (string | null)>({
       query: (category) => `/products/category/${category}`,
     }),
   }),

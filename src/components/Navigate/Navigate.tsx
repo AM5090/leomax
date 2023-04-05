@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import Cookies from 'cookies-ts';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { linksHandler } from '../../libs/functions/linksHandler';
@@ -7,33 +9,42 @@ import { setMenuItem } from '../../store/slices/mainSlice';
 
 import styled from './navigate.module.scss';
 
+const cookies = new Cookies();
+
+
 interface INavigate {
-  // menu: IMenuItem[] | undefined
   menu: string[] | undefined
 }
 
 export function Navigate({ menu }: INavigate) {
 
-  const {openMenu} = useAppSelector(state => state.main);
+  const { selectMenuItem, openMenu} = useAppSelector(state => state.main);
   const dispatch = useAppDispatch();
 
-  function handlerOpenMenu(menuItem: string) {
+  useEffect(() => {
+    cookies.set('category', selectMenuItem);
+  }, [selectMenuItem]);
+
+  function handlerOpenMenu(e: any, menuItem: string) {
+    e.preventDefault();
     dispatch(setMenuItem(menuItem));
   }
 
   return (
     <nav className={`${styled.navMenu} ${openMenu ? styled.active : ''}`}>
-      <ul>
         {menu?.length && menu.map(item => {
-
           return (
-            <li key={item} onClick={() => handlerOpenMenu(item)}>
-              <Link to={item} onClick={(e) => e.preventDefault()}>{item}</Link>
-            </li>
+              <NavLink 
+                to={item} 
+                key={item}
+                onClick={(e) => handlerOpenMenu(e, item)}
+                className={({ isActive }) => { return isActive ? styled.active : ''; }}
+              >
+                {item}
+              </NavLink>
           );
 
         })}
-      </ul>
     </nav>
   );
 }
