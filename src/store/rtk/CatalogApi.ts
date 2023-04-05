@@ -3,16 +3,18 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQueryCatalog } from '../../libs/utils/api';
 
 interface IGetCatalog {
-  shard: string,
-  query: string,
+  category: string,
 }
 
 export const catalogApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQueryCatalog,
   endpoints: (builder) => ({
-    getCatalog: builder.query<any, IGetCatalog>({
-      query: ({shard, query}) => '',
+    getCatalog: builder.query<any, void>({
+      query: () => ({
+        url: '/products/category/electronics',
+        method: 'GET',
+      }),
     }),
   }),
 });

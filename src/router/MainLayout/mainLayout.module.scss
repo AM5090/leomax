@@ -3,4 +3,14 @@
 .container {
   position: relative;
   height: calc(100vh - $headerHeight);
+
+  display: flex;
+
+
+  .content {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow-y: auto;
+  }
 }

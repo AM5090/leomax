@@ -14,16 +14,16 @@ export function ChildMenu() {
   const dispatch = useAppDispatch();
 
   function handlerCloseMenu() {
-    dispatch(setMenuItem(null));
+    dispatch(setMenuItem(''));
   }
 
   return (
     <>
-      {selectMenuItem?.childs &&
+      {/* {selectMenuItem?.childs &&
         <section className={styled.childMenu} onMouseLeave={handlerCloseMenu}>
           <ChildMenuItem name={selectMenuItem?.name} childs={selectMenuItem?.childs}/>
         </section>
-      }
+      } */}
     </>
   );
 }

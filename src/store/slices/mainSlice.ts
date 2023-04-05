@@ -3,18 +3,18 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IMenuItem } from '../rtk/menuInterface';
 
 interface MainInitialState {
-  selectMenuItem: IMenuItem | null;
+  selectMenuItem: string;
 }
 
 const initialState: MainInitialState = {
-  selectMenuItem: null,
+  selectMenuItem: '',
 };
 
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
-    setMenuItem: (state: MainInitialState, action: PayloadAction<IMenuItem | null>) => {
+    setMenuItem: (state: MainInitialState, action: PayloadAction<string>) => {
       state.selectMenuItem = action.payload;
     },
   },

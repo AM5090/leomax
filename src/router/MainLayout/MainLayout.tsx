@@ -22,17 +22,6 @@ export function MainLayout() {
     }
   }, [location.pathname]);
 
-  useEffect(() => {
-    // console.log('data >>>', data);
-    if (data) {
-      data.forEach((element: any) => {
-        if(!element.url.includes('http')) {
-          // console.log(element.url);
-        }
-      });
-    }
-  }, [data]);
-
   
 
   return(
@@ -40,8 +29,8 @@ export function MainLayout() {
       <Header/>
       <main className={styled.container}>
         <Navigate menu={data}/>
-        <ChildMenu/>
-        <section className="content">
+        {/* <ChildMenu/> */}
+        <section className={styled.content}>
           <Outlet/>
         </section>
       </main>

@@ -8,14 +8,15 @@ import { setMenuItem } from '../../store/slices/mainSlice';
 import styled from './navigate.module.scss';
 
 interface INavigate {
-  menu: IMenuItem[] | undefined
+  // menu: IMenuItem[] | undefined
+  menu: string[] | undefined
 }
 
 export function Navigate({ menu }: INavigate) {
 
   const dispatch = useAppDispatch();
 
-  function handlerOpenMenu(menuItem: IMenuItem) {
+  function handlerOpenMenu(menuItem: string) {
     dispatch(setMenuItem(menuItem));
   }
 
@@ -24,17 +25,12 @@ export function Navigate({ menu }: INavigate) {
       <ul>
         {menu?.length && menu.map(item => {
 
-          const link = linksHandler(item.url);
+          return (
+            <li key={item} onClick={() => handlerOpenMenu(item)}>
+              <Link to={item} onClick={(e) => e.preventDefault()}>{item}</Link>
+            </li>
+          );
 
-          if(link) {
-            return (
-              <li key={item.id} onMouseEnter={() => handlerOpenMenu(item)}>
-                <Link to={link} onClick={(e) => e.preventDefault()}>{item.name}</Link>
-              </li>
-            );
-          };
-
-          return <></>;
         })}
       </ul>
     </nav>

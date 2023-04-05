@@ -35,15 +35,19 @@ export function ChildMenuItem({name, childs}: IChildMenuItemProps) {
         <nav>
           <ul>
             {childs && childs?.map(item => {
-              const link = linksHandler(item.url);
+              console.log('22 >>>', item);
 
-              if (link) {
-                return (
-                  <li key={item.id} onMouseEnter={() => handlerOpenChild(item)}>
-                    <Link to={link} onClick={(e) => e.preventDefault()}>{item.name}</Link>
-                  </li>
-                );
-              }
+            //   const link = linksHandler(item.url);
+
+            //   if (link) {
+            //     return (
+            //       <li key={item.id} onMouseEnter={() => handlerOpenChild(item)}>
+            //         <Link to={link} onClick={(e) => e.preventDefault()}>{item.name}</Link>
+            //       </li>
+            //     );
+            //   }
+            return <></>;
+
             })}
           </ul>
         </nav>
