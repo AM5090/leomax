@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Cookies from 'cookies-ts';
 
 import { IMenuItem } from '../rtk/menuInterface';
 
@@ -10,12 +9,11 @@ interface MainInitialState {
   selectProduct: string | null;
 }
 
-const cookies = new Cookies();
 
 const initialState: MainInitialState = {
-  selectMenuItem: Boolean(cookies.get('category')) ? cookies.get('category') : 'electronics',
+  selectMenuItem: Boolean(localStorage.getItem('category')) ? localStorage.getItem('category') : 'electronics',
   openMenu: false,
-  selectProduct: Boolean(cookies.get('product')) ? cookies.get('product') : null,
+  selectProduct: Boolean(localStorage.getItem('product')) ? localStorage.getItem('product') : null,
 };
 
 export const mainSlice = createSlice({

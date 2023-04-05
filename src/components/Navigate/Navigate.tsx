@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Cookies from 'cookies-ts';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { linksHandler } from '../../libs/functions/linksHandler';
@@ -9,7 +8,6 @@ import { setMenuItem } from '../../store/slices/mainSlice';
 
 import styled from './navigate.module.scss';
 
-const cookies = new Cookies();
 
 
 interface INavigate {
@@ -22,7 +20,9 @@ export function Navigate({ menu }: INavigate) {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    cookies.set('category', selectMenuItem);
+    if (selectMenuItem) {
+      localStorage.setItem('category', selectMenuItem);
+    }
   }, [selectMenuItem]);
 
   function handlerOpenMenu(e: any, menuItem: string) {

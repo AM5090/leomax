@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Cookies from 'cookies-ts';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { useGetCatalogQuery } from '../../store/rtk';
@@ -7,7 +6,6 @@ import { setSelectProduct } from '../../store/slices/mainSlice';
 
 import styled from './main.module.scss';
 
-const cookies = new Cookies();
 
 
 export function Main() {
@@ -19,14 +17,12 @@ export function Main() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log('selectProduct >>>', selectProduct);
     if (selectProduct) {
-      cookies.set('product', selectProduct);
+      localStorage.setItem('product', selectProduct);
     }
   }, [selectProduct]);
 
   function hundlerCardClick(item: any) {
-    console.log(item.id);
     dispatch(setSelectProduct(String(item.id)));
   }
 
