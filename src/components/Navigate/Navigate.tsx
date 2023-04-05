@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { useAppDispatch } from '../../hooks/reduxHook';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { linksHandler } from '../../libs/functions/linksHandler';
 import { IMenuItem } from '../../store/rtk/menuInterface';
 import { setMenuItem } from '../../store/slices/mainSlice';
@@ -14,6 +14,7 @@ interface INavigate {
 
 export function Navigate({ menu }: INavigate) {
 
+  const {openMenu} = useAppSelector(state => state.main);
   const dispatch = useAppDispatch();
 
   function handlerOpenMenu(menuItem: string) {
@@ -21,7 +22,7 @@ export function Navigate({ menu }: INavigate) {
   }
 
   return (
-    <nav className={styled.navMenu}>
+    <nav className={`${styled.navMenu} ${openMenu ? styled.active : ''}`}>
       <ul>
         {menu?.length && menu.map(item => {
 

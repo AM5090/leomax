@@ -11,6 +11,15 @@
   overflow-y: auto;
   box-shadow: 5px 4px 20px 0px #61dafb2e;
 
+  position: fixed;
+  z-index: 100;
+  background: $dark;
+  left: -$navWidth;
+
+  &.active {
+    left: 0px;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -38,9 +47,4 @@
     }
   }
 
-  
-
-  // li + li {
-  //   margin: 8px 0 0 0;
-  // }
 }

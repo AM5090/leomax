@@ -7,4 +7,12 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0px 10px;
+
+  svg {
+    cursor: pointer;
+  }
+
+  h2 {
+    margin-left: 10px;
+  }
 }
